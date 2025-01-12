@@ -9,3 +9,4 @@ mfgd
 .depend
 *.sublime-workspace
 .DS_Store
+/.vs
