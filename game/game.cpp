@@ -28,6 +28,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON A
 #include <unistd.h>
 #else
 #include <GL/glu.h>
+//#include <Windows.h>
 #endif
 
 #include <mtrand.h>
@@ -46,6 +47,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON A
 #include "seaweed.h"
 
 #include "spline.h"
+
 
 #define SEGMENTS_PER_POINT 60
 
@@ -296,7 +298,7 @@ bool CGame::MouseInput(int iButton, tinker_mouse_state_t iState)
 	}
 
 	if (iButton == TINKER_KEY_MOUSE_RIGHT && iState == TINKER_MOUSE_PRESSED)
-		sleep(1);
+		Sleep(1);
 
 	return false;
 }
@@ -574,11 +576,11 @@ void CGame::Update(float dt)
 			Vector drag;// = -velocity.Normalized() * (velocity.LengthSqr() / (float)(1<<6));
 
 			// Boost around the sun if you get too close.
-			float boost_around_sun_strength = std::min(1/to_center.Length() / 10, 10.0f);
+			float boost_around_sun_strength = std::fmin(1/to_center.Length() * 0.1, 10.0f);
 			Vector boosters;// = velocity * boost_around_sun_strength;
 
 			// Boost towards the sun if you get too far.
-			float boost_toward_sun_strength = std::min(to_center.Length() / 30, 10.0f);
+			float boost_toward_sun_strength = std::fmin(to_center.Length() / 30, 10.0f);
 			//boosters = boosters + to_center.Normalized() * boost_toward_sun_strength;
 
 			// Boost away from the player

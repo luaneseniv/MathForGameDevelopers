@@ -4,6 +4,7 @@
     <LocalDebuggerWorkingDirectory>$(ProjectDir)/content</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommandArguments>4 4</LocalDebuggerCommandArguments>
+    <RemoteDebuggerCommandArguments>4 4</RemoteDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)/content</LocalDebuggerWorkingDirectory>
